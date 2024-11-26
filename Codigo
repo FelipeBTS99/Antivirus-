@@ -1,0 +1,38 @@
+package antivirus;
+
+import java.io.File; 
+
+import java.util.Scanner; 
+
+public class antivirus {
+
+    public static void main(String[] args) {
+        Scanner texto = new Scanner(System.in); 
+       
+        System.out.println("***Antivirus DefenderX***");
+        System.out.println(" -------------------------");
+        System.out.print("Digite o diretório para busca: ");
+        String diretorio = texto.nextLine(); 
+
+        File recebediretorio = new File(diretorio); 
+        if (recebediretorio.isDirectory()) { 
+            File[] arquivo = recebediretorio.listFiles(); 
+
+            if (arquivo != null) {
+                for (File arquivos : arquivo) { 
+                   
+                	
+                	
+                    if (arquivos.getName().endsWith(".exe") || arquivos.getName().endsWith(".bat")) {
+                        System.out.println("Arquivo encontrado: " + arquivos.getAbsolutePath());
+                        
+                    }
+                }
+            }
+        } else {
+            System.out.println("O caminho informado não é um diretório válido.");
+        }
+
+       
+    }
+}
